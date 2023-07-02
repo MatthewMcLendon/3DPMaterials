@@ -1,0 +1,11 @@
+node_modules
+bower_components
+pycache
+*.pyc
+bin
+obj
+*.db
+*.sqlite3
+.vscode
+dist
+.settings.js
