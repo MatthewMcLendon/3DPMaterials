@@ -1,94 +1,67 @@
 {
   "materials": [
     {
-      "title": "test",
+      "title": "Hatchbox PLA 1.75mm black ",
       "type": "fdm",
       "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
+        "nozzleTemp": "190",
+        "bedTemp": "60",
+        "retractionDistance": "3",
+        "retractionSpeed": "30"
       },
-      "storeLink": "test",
-      "image": "test",
-      "price": "1",
+      "storeLink": "https://www.amazon.com/HATCHBOX-3D-Filament-Dimensional-Accuracy/dp/B00J0ECR5I/ref=sr_1_3?keywords=hatchbox+pla&qid=1688408102&sprefix=hatchbo%2Caps%2C91&sr=8-3",
+      "image": "https://m.media-amazon.com/images/I/71ZgqHSYaFL._AC_SL1500_.jpg",
+      "price": "24.99",
       "stock": "1",
       "id": 1
     },
     {
-      "title": "test 2",
-      "type": "fdm",
+      "title": "Anycubic 3D 405nm Grey",
+      "type": "resin",
       "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
+        "burnIn": {
+          "layerCount": "2",
+          "exposureTime": "30",
+          "transitionLayers": "3",
+          "lightOffDelay": "10",
+          "liftDistance": "5",
+          "liftSpeed": "30"
+        },
+        "exposureTime": "15",
+        "lightOffDelay": "5",
+        "liftDistance": "5",
+        "liftSpeed": "30",
+        "retractionSpeed": "30"
       },
-      "storeLink": "test",
-      "image": "test",
-      "price": "1",
+      "storeLink": "https://www.amazon.com/ANYCUBIC-UV-Curing-Precision-Excellent-Fluidity/dp/B07G3663HD/ref=sr_1_3?crid=YWS4JQY9S2T9&keywords=3d+printing+resin&qid=1688408504&sprefix=3d+printing+resin%2Caps%2C93&sr=8-3",
+      "image": "https://m.media-amazon.com/images/I/6113X5zRYyL._SL1500_.jpg",
+      "price": "23.99",
       "stock": "1",
       "id": 2
     },
     {
-      "title": "test 3",
-      "type": "fdm",
+      "title": "Anycubic 3D 405nm Transparent",
+      "type": "resin",
       "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
+        "burnIn": {
+          "layerCount": "3",
+          "exposureTime": "2",
+          "transitionLayers": "3",
+          "lightOffDelay": "3",
+          "liftDistance": "2",
+          "liftSpeed": "2"
+        },
+        "exposureTime": "3",
+        "lightOffDelay": "3",
+        "liftDistance": "3",
+        "liftSpeed": "3",
+        "retractionSpeed": "3"
       },
-      "storeLink": "test",
-      "image": "test",
-      "price": "1",
+      "storeLink": "https://www.amazon.com/ANYCUBIC-Printer-Precision-Photopolymer-Printing/dp/B08CDMZ861/ref=sr_1_4?crid=YWS4JQY9S2T9&keywords=3d+printing+resin&qid=1688408794&sprefix=3d+printing+resin%2Caps%2C93&sr=8-4",
+      "image": "https://m.media-amazon.com/images/I/61b1WkVP2zL._SL1500_.jpg",
+      "price": "26.99",
       "stock": "1",
       "id": 3
-    },
-    {
-      "title": "test 4",
-      "type": "fdm",
-      "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
-      },
-      "storeLink": "test",
-      "image": "test",
-      "price": "1",
-      "stock": "1",
-      "id": 4
-    },
-    {
-      "title": "test 5",
-      "type": "fdm",
-      "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
-      },
-      "storeLink": "test",
-      "image": "test",
-      "price": "1",
-      "stock": "1",
-      "id": 5
-    },
-    {
-      "title": "test 6",
-      "type": "fdm",
-      "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
-      },
-      "storeLink": "test",
-      "image": "test",
-      "price": "1",
-      "stock": "1",
-      "id": 6
     }
   ]
 }

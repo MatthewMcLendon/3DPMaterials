@@ -66,6 +66,7 @@ const makeMaterial = () => {
         ).value,
       },
       storeLink: document.querySelector("#material-form-store").value,
+      image: document.querySelector("#material-form-image").value,
       price: document.querySelector("#material-form-price").value,
       stock: document.querySelector("#material-form-stock").value,
     };

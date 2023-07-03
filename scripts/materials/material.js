@@ -10,6 +10,23 @@ class Material {
     this.id = material.id;
   }
 
+  // Render html for list
+
+  render() {
+    return `
+    <div class="material-card">
+      <h2 class="material-card-title">${this.title}</h2>
+      <image class="material-card-image" src="${this.image}">
+      <p class="material-card-inventory">Inventory: ${this.stock}</p>
+      <p class="material-card-price">Price: ${this.price}</p>
+    </div>
+    `;
+  }
+
+  // Render html for detail page
+
+  renderDetail() {}
+
   // Routes to database
 
   save() {
@@ -44,7 +61,9 @@ export class Resin extends Material {
     super(material);
   }
 
-  render() {
+  // Render html for specific settings
+
+  renderSettings() {
     return `
     <h2>Test ${this.title}</h2>
     `;
@@ -56,7 +75,9 @@ export class Fdm extends Material {
     super(material);
   }
 
-  render() {
+  // Render html for specific settings
+
+  renderSettings() {
     return `
     <h2>Test ${this.title}</h2>
     `;
