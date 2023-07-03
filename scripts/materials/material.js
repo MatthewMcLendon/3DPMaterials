@@ -4,10 +4,13 @@ class Material {
     this.type = material.type;
     this.settings = material.settings;
     this.storeLink = material.storeLink;
+    this.image = material.image;
     this.price = material.price;
     this.stock = material.stock;
     this.id = material.id;
   }
+
+  // Routes to database
 
   save() {
     return fetch(`http://localhost:8088/materials`, {

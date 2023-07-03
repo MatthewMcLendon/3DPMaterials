@@ -1,19 +1,15 @@
 import { Resin, Fdm } from "./material.js";
 
 export const materialForm = () => {
-  render();
-  eventHandler();
-};
-
-const eventHandler = () => {
   const eventHub = document.querySelector(".container");
+  render();
 
   eventHub.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id === "material-form-submit") {
       clickEvent.preventDefault();
-      console.log("form submit");
 
       makeMaterial();
+      render();
     }
   });
 
@@ -72,7 +68,10 @@ const makeMaterial = () => {
     };
 
     const finishedMaterial = new Resin(newMaterial);
-    finishedMaterial.save();
+    finishedMaterial.save().then(() => {
+      const message = new CustomEvent("materialFormSubmit");
+      document.querySelector(".container").dispatchEvent(message);
+    });
   }
 
   if (document.querySelector("#material-form-type").value === "fdm") {
@@ -91,15 +90,17 @@ const makeMaterial = () => {
         ).value,
       },
       storeLink: document.querySelector("#material-form-store").value,
+      image: document.querySelector("#material-form-image").value,
       price: document.querySelector("#material-form-price").value,
       stock: document.querySelector("#material-form-stock").value,
     };
 
     const finishedMaterial = new Fdm(newMaterial);
-    finishedMaterial.save();
+    finishedMaterial.save().then(() => {
+      const message = new CustomEvent("materialFormSubmit");
+      document.querySelector(".container").dispatchEvent(message);
+    });
   }
-
-  console.log(newMaterial);
 };
 
 const render = () => {
@@ -127,6 +128,10 @@ const render = () => {
     <div>
         <label for="material-form-store">Link to store:</label>
         <input type="text" id="material-form-store">
+    </div>
+    <div>
+        <label for="material-form-image">Image link:</label>
+        <input type="text" id="material-form-image">
     </div>
     <div>
         <label for="material-form-price">Price per roll/bottle:</label>

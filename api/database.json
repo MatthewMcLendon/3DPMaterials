@@ -1,7 +1,7 @@
 {
   "materials": [
     {
-      "title": "Test",
+      "title": "test",
       "type": "fdm",
       "settings": {
         "nozzleTemp": "1",
@@ -10,32 +10,70 @@
         "retractionSpeed": "1"
       },
       "storeLink": "test",
+      "image": "test",
       "price": "1",
       "stock": "1",
       "id": 1
     },
     {
-      "title": "Test",
-      "type": "resin",
+      "title": "test 2",
+      "type": "fdm",
       "settings": {
-        "burnIn": {
-          "layerCount": "1",
-          "exposureTime": "1",
-          "transitionLayers": "1",
-          "lightOffDelay": "1",
-          "liftDistance": "1",
-          "liftSpeed": "1"
-        },
-        "exposureTime": "1",
-        "lightOffDelay": "1",
-        "liftDistance": "1",
-        "liftSpeed": "1",
+        "nozzleTemp": "1",
+        "bedTemp": "1",
+        "retractionDistance": "1",
         "retractionSpeed": "1"
       },
       "storeLink": "test",
+      "image": "test",
       "price": "1",
       "stock": "1",
       "id": 2
+    },
+    {
+      "title": "test 3",
+      "type": "fdm",
+      "settings": {
+        "nozzleTemp": "1",
+        "bedTemp": "1",
+        "retractionDistance": "1",
+        "retractionSpeed": "1"
+      },
+      "storeLink": "test",
+      "image": "test",
+      "price": "1",
+      "stock": "1",
+      "id": 3
+    },
+    {
+      "title": "test 4",
+      "type": "fdm",
+      "settings": {
+        "nozzleTemp": "1",
+        "bedTemp": "1",
+        "retractionDistance": "1",
+        "retractionSpeed": "1"
+      },
+      "storeLink": "test",
+      "image": "test",
+      "price": "1",
+      "stock": "1",
+      "id": 4
+    },
+    {
+      "title": "test 5",
+      "type": "fdm",
+      "settings": {
+        "nozzleTemp": "1",
+        "bedTemp": "1",
+        "retractionDistance": "1",
+        "retractionSpeed": "1"
+      },
+      "storeLink": "test",
+      "image": "test",
+      "price": "1",
+      "stock": "1",
+      "id": 5
     }
   ]
 }
