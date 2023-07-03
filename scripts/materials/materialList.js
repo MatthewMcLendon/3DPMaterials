@@ -1,9 +1,12 @@
 import { getMaterials, useMaterials } from "./materialProvider.js";
 
 export const materialList = () => {
-  const eventHub = document.querySelector(".container");
-
   render();
+  eventHandler();
+};
+
+const eventHandler = () => {
+  const eventHub = document.querySelector(".container");
 
   eventHub.addEventListener("materialFormSubmit", (event) => {
     getMaterials().then(render);

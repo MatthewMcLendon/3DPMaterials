@@ -74,6 +74,21 @@
       "price": "1",
       "stock": "1",
       "id": 5
+    },
+    {
+      "title": "test 6",
+      "type": "fdm",
+      "settings": {
+        "nozzleTemp": "1",
+        "bedTemp": "1",
+        "retractionDistance": "1",
+        "retractionSpeed": "1"
+      },
+      "storeLink": "test",
+      "image": "test",
+      "price": "1",
+      "stock": "1",
+      "id": 6
     }
   ]
 }

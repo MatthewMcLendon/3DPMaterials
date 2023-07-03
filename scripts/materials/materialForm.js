@@ -1,9 +1,12 @@
 import { Resin, Fdm } from "./material.js";
 
 export const materialForm = () => {
-  const eventHub = document.querySelector(".container");
   render();
+  eventHandler();
+};
 
+const eventHandler = () => {
+  const eventHub = document.querySelector(".container");
   eventHub.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id === "material-form-submit") {
       clickEvent.preventDefault();
