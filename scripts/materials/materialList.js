@@ -26,8 +26,6 @@ const eventHandler = () => {
           material.id.toString() === clickEvent.target.parentElement.id
       );
 
-      console.log(selectedMaterial);
-
       targetElement.innerHTML = selectedMaterial[0].renderDetail();
       targetElement.className = "material-modal-visable";
     }
@@ -37,6 +35,22 @@ const eventHandler = () => {
 
       targetElement.innerHTML = "";
       targetElement.className = "material-modal-hidden";
+    }
+
+    if (clickEvent.target.id === "modal-update-button") {
+    }
+
+    if (clickEvent.target.className === "modal-delete-button") {
+      let materials = useMaterials();
+      const targetElement = document.querySelector(".material-modal-visable");
+
+      const selectedMaterial = materials.filter(
+        (material) => `delete-${material.id}` === clickEvent.target.id
+      );
+
+      targetElement.innerHTML = "";
+      targetElement.className = "material-modal-hidden";
+      selectedMaterial[0].delete().then(getMaterials).then(render);
     }
   });
 };

@@ -33,8 +33,8 @@ class Material {
     ${this.renderSettings()}
     <p class="material-card-inventory">Inventory: ${this.stock}</p>
     <p class="material-card-price">Price: ${this.price}</p>
-    <button id="modal-update-button">Update</button>
-    <button id="modal-delete-button">Delete</button>
+    <button class="modal-update-button" id="update-${this.id}">Update</button>
+    <button class="modal-delete-button" id="delete-${this.id}">Delete</button>
       `;
   }
 
