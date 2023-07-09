@@ -11,6 +11,34 @@ const eventHandler = () => {
   eventHub.addEventListener("materialFormSubmit", (event) => {
     getMaterials().then(render);
   });
+
+  eventHub.addEventListener("click", (clickEvent) => {
+    if (
+      // clickEvent.target.className === "material-card" ||
+      clickEvent.target.className === "material-card-image"
+    ) {
+      let materials = useMaterials();
+      const targetElement = document.querySelector(".material-modal-hidden");
+
+      // investigate this line of code. The arrow function ()=>{} syntax doesn't work, but using just the => does?
+      const selectedMaterial = materials.filter(
+        (material) =>
+          material.id.toString() === clickEvent.target.parentElement.id
+      );
+
+      console.log(selectedMaterial);
+
+      targetElement.innerHTML = selectedMaterial[0].renderDetail();
+      targetElement.className = "material-modal-visable";
+    }
+
+    if (clickEvent.target.id === "modal-close-button") {
+      const targetElement = document.querySelector(".material-modal-visable");
+
+      targetElement.innerHTML = "";
+      targetElement.className = "material-modal-hidden";
+    }
+  });
 };
 
 const render = () => {

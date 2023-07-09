@@ -14,7 +14,7 @@ class Material {
 
   render() {
     return `
-    <div class="material-card">
+    <div class="material-card" id="${this.id}">
       <h2 class="material-card-title">${this.title}</h2>
       <image class="material-card-image" src="${this.image}">
       <p class="material-card-inventory">Inventory: ${this.stock}</p>
@@ -23,9 +23,20 @@ class Material {
     `;
   }
 
-  // Render html for detail page
+  // Render html for detail
 
-  renderDetail() {}
+  renderDetail() {
+    return `
+    <button id="modal-close-button">X</button>
+    <h2 class="material-card-title">${this.title}</h2>
+    <image class="material-card-image" src="${this.image}">
+    ${this.renderSettings()}
+    <p class="material-card-inventory">Inventory: ${this.stock}</p>
+    <p class="material-card-price">Price: ${this.price}</p>
+    <button id="modal-update-button">Update</button>
+    <button id="modal-delete-button">Delete</button>
+      `;
+  }
 
   // Routes to database
 
@@ -65,7 +76,17 @@ export class Resin extends Material {
 
   renderSettings() {
     return `
-    <h2>Test ${this.title}</h2>
+    <p>Number of Burn-in layers: ${this.settings.burnIn.layerCount}</p>
+    <p>Burn-in layer exposure time: ${this.settings.burnIn.exposureTime}</p>
+    <p>Number of transition layers: ${this.settings.burnIn.transitionLayers}</p>
+    <p>Burn-in light off delay: ${this.settings.burnIn.lightOffDelay}</p>
+    <p>Burn-in layer lift distance: ${this.settings.burnIn.liftDistance}</p>
+    <p>Burn-in layer lift speed: ${this.settings.burnIn.liftSpeed}</p>
+    <p>Layer exposure time: ${this.settings.exposureTime}</p>
+    <p>Layer light off delay: ${this.settings.lightOffDelay}</p>
+    <p>Layer lift distance: ${this.settings.liftDistance}</p>
+    <p>Layer lift speed: ${this.settings.liftSpeed}</p>
+    <p>Retraction speed: ${this.settings.retractionSpeed}</p>
     `;
   }
 }
@@ -79,7 +100,10 @@ export class Fdm extends Material {
 
   renderSettings() {
     return `
-    <h2>Test ${this.title}</h2>
+    <p>Nozzle temperature (C): ${this.settings.nozzleTemp}</p>
+    <p>Bed temperature (C): ${this.settings.bedTemp}</p>
+    <p>Retraction distance: ${this.settings.retractionDistance}</p>
+    <p>Retraction speed: ${this.settings.retractionSpeed}</p>
     `;
   }
 }
