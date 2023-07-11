@@ -14,6 +14,13 @@ const eventHandler = () => {
       makeMaterial();
       render();
     }
+
+    if (clickEvent.target.id === "material-form-update") {
+      const button = document.querySelector("#material-form-update");
+      button.id = "material-form-submit";
+      button.innerHTML = "Submit";
+      // Continue from here. Need to get material and update with new values. Then, rerender the form, get the materials, and list them.
+    }
   });
 
   eventHub.addEventListener("change", (changeEvent) => {
@@ -21,6 +28,58 @@ const eventHandler = () => {
       settingSelector();
     }
   });
+};
+
+export const updateForm = (materialToUpdate) => {
+  document.querySelector(
+    ".material-form-title"
+  ).innerHTML = `Update ${materialToUpdate[0].title}`;
+  document.querySelector("#material-form-title").value =
+    materialToUpdate[0].title;
+  document.querySelector("#material-form-store").value =
+    materialToUpdate[0].storeLink;
+  document.querySelector("#material-form-image").value =
+    materialToUpdate[0].image;
+  document.querySelector("#material-form-price").value =
+    materialToUpdate[0].price;
+  document.querySelector("#material-form-stock").value =
+    materialToUpdate[0].stock;
+  const button = document.querySelector("#material-form-submit");
+  button.id = "material-form-update";
+  button.innerHTML = "Update";
+
+  if (materialToUpdate[0].type === "resin") {
+    document.querySelector("#material-form-type").value =
+      materialToUpdate[0].type;
+
+    settingSelector();
+
+    document.querySelector("#material-form-resin-burnInLayerCount").value =
+      materialToUpdate[0].settings.burnIn.layerCount;
+    document.querySelector("#material-form-resin-burnInExposureTime").value =
+      materialToUpdate[0].settings.burnIn.exposureTime;
+    document.querySelector(
+      "#material-form-resin-burnInTransitionLayerCount"
+    ).value = materialToUpdate[0].settings.burnIn.transitionLayers;
+    document.querySelector("#material-form-resin-burnInLightOffDelay").value =
+      materialToUpdate[0].settings.burnIn.lightOffDelay;
+    document.querySelector("#material-form-resin-burnInLiftDistance").value =
+      materialToUpdate[0].settings.burnIn.liftDistance;
+    document.querySelector("#material-form-resin-burnInLiftSpeed").value =
+      materialToUpdate[0].settings.burnIn.liftSpeed;
+    document.querySelector("#material-form-resin-lightOffDelay").value =
+      materialToUpdate[0].settings.burnIn.lightOffDelay;
+    document.querySelector("#material-form-resin-exposureTime").value =
+      materialToUpdate[0].settings.burnIn.exposureTime;
+    document.querySelector("#material-form-resin-liftDistance").value =
+      materialToUpdate[0].settings.burnIn.liftDistance;
+    document.querySelector("#material-form-resin-liftSpeed").value =
+      materialToUpdate[0].settings.burnIn.liftSpeed;
+    document.querySelector("#material-form-resin-retractSpeed").value =
+      materialToUpdate[0].settings.retractionSpeed;
+  }
+  if (materialToUpdate[0].type === "fdm") {
+  }
 };
 
 const makeMaterial = () => {
@@ -112,7 +171,7 @@ const render = () => {
 
   targetElement.innerHTML = `
   <form>
-    <h2>New Material:</h2>
+    <h2 class="material-form-title">New Material:</h2>
     <input type="hidden" id="material-form-id">
     <div>
         <label for="material-form-title">Name of material:</label>

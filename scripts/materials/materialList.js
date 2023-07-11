@@ -1,3 +1,4 @@
+import { updateForm } from "./materialForm.js";
 import { getMaterials, useMaterials } from "./materialProvider.js";
 
 export const materialList = () => {
@@ -37,7 +38,17 @@ const eventHandler = () => {
       targetElement.className = "material-modal-hidden";
     }
 
-    if (clickEvent.target.id === "modal-update-button") {
+    if (clickEvent.target.className === "modal-update-button") {
+      let materials = useMaterials();
+      const targetElement = document.querySelector(".material-modal-visable");
+
+      const selectedMaterial = materials.filter(
+        (material) => `update-${material.id}` === clickEvent.target.id
+      );
+
+      updateForm(selectedMaterial);
+      targetElement.innerHTML = "";
+      targetElement.className = "material-modal-hidden";
     }
 
     if (clickEvent.target.className === "modal-delete-button") {
