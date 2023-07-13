@@ -1,5 +1,7 @@
 import { Resin, Fdm } from "./material.js";
 
+let materialStore = {};
+
 export const materialForm = () => {
   render();
   eventHandler();
@@ -16,10 +18,10 @@ const eventHandler = () => {
     }
 
     if (clickEvent.target.id === "material-form-update") {
-      const button = document.querySelector("#material-form-update");
-      button.id = "material-form-submit";
-      button.innerHTML = "Submit";
-      // Continue from here. Need to get material and update with new values. Then, rerender the form, get the materials, and list them.
+      clickEvent.preventDefault();
+
+      updateMaterial();
+      render();
     }
   });
 
@@ -30,7 +32,40 @@ const eventHandler = () => {
   });
 };
 
-export const updateForm = (materialToUpdate) => {
+const makeMaterial = () => {
+  let material = getForm();
+  let finishedMaterial = {};
+  if (material.type === "resin") {
+    finishedMaterial = new Resin(material);
+  }
+  if (material.type === "fdm") {
+    finishedMaterial = new Fdm(material);
+  }
+  finishedMaterial.save().then(() => {
+    const message = new CustomEvent("materialFormSubmit");
+    document.querySelector(".container").dispatchEvent(message);
+  });
+};
+
+const updateMaterial = () => {
+  const updatedMaterial = getForm();
+  const material = useMaterialStore();
+  console.log(material);
+  material[0].update(updatedMaterial).then(() => {
+    const message = new CustomEvent("materialFormSubmit");
+    document.querySelector(".container").dispatchEvent(message);
+  });
+};
+
+const setMaterialStore = (material) => {
+  materialStore = material;
+};
+
+const useMaterialStore = () => {
+  return materialStore;
+};
+
+export const setForm = (materialToUpdate) => {
   document.querySelector(
     ".material-form-title"
   ).innerHTML = `Update ${materialToUpdate[0].title}`;
@@ -44,16 +79,12 @@ export const updateForm = (materialToUpdate) => {
     materialToUpdate[0].price;
   document.querySelector("#material-form-stock").value =
     materialToUpdate[0].stock;
-  const button = document.querySelector("#material-form-submit");
-  button.id = "material-form-update";
-  button.innerHTML = "Update";
+  document.querySelector("#material-form-type").value =
+    materialToUpdate[0].type;
+
+  settingSelector();
 
   if (materialToUpdate[0].type === "resin") {
-    document.querySelector("#material-form-type").value =
-      materialToUpdate[0].type;
-
-    settingSelector();
-
     document.querySelector("#material-form-resin-burnInLayerCount").value =
       materialToUpdate[0].settings.burnIn.layerCount;
     document.querySelector("#material-form-resin-burnInExposureTime").value =
@@ -79,10 +110,24 @@ export const updateForm = (materialToUpdate) => {
       materialToUpdate[0].settings.retractionSpeed;
   }
   if (materialToUpdate[0].type === "fdm") {
+    document.querySelector("#material-form-fdm-nozzleTemp").value =
+      materialToUpdate[0].settings.nozzleTemp;
+    document.querySelector("#material-form-fdm-bedTemp").value =
+      materialToUpdate[0].settings.bedTemp;
+    document.querySelector("#material-form-fdm-retractionDistance").value =
+      materialToUpdate[0].settings.retractionDistance;
+    document.querySelector("#material-form-fdm-retractionSpeed").value =
+      materialToUpdate[0].settings.retractionSpeed;
   }
+
+  const button = document.querySelector("#material-form-submit");
+  button.id = "material-form-update";
+  button.innerHTML = "Update";
+
+  setMaterialStore(materialToUpdate);
 };
 
-const makeMaterial = () => {
+const getForm = () => {
   let newMaterial = {};
   if (document.querySelector("#material-form-type").value === "resin") {
     newMaterial = {
@@ -129,12 +174,6 @@ const makeMaterial = () => {
       price: document.querySelector("#material-form-price").value,
       stock: document.querySelector("#material-form-stock").value,
     };
-
-    const finishedMaterial = new Resin(newMaterial);
-    finishedMaterial.save().then(() => {
-      const message = new CustomEvent("materialFormSubmit");
-      document.querySelector(".container").dispatchEvent(message);
-    });
   }
 
   if (document.querySelector("#material-form-type").value === "fdm") {
@@ -157,13 +196,9 @@ const makeMaterial = () => {
       price: document.querySelector("#material-form-price").value,
       stock: document.querySelector("#material-form-stock").value,
     };
-
-    const finishedMaterial = new Fdm(newMaterial);
-    finishedMaterial.save().then(() => {
-      const message = new CustomEvent("materialFormSubmit");
-      document.querySelector(".container").dispatchEvent(message);
-    });
   }
+
+  return newMaterial;
 };
 
 const render = () => {

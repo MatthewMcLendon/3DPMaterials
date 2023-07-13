@@ -1,4 +1,4 @@
-import { updateForm } from "./materialForm.js";
+import { setForm } from "./materialForm.js";
 import { getMaterials, useMaterials } from "./materialProvider.js";
 
 export const materialList = () => {
@@ -46,7 +46,7 @@ const eventHandler = () => {
         (material) => `update-${material.id}` === clickEvent.target.id
       );
 
-      updateForm(selectedMaterial);
+      setForm(selectedMaterial);
       targetElement.innerHTML = "";
       targetElement.className = "material-modal-hidden";
     }
