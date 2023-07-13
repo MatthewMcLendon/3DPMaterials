@@ -19,23 +19,20 @@ const eventHandler = () => {
       clickEvent.target.className === "material-card-image"
     ) {
       let materials = useMaterials();
-      const targetElement = document.querySelector(".material-modal-hidden");
+      const targetElement = document.querySelector(".material-modal");
 
-      // investigate this line of code. The arrow function ()=>{} syntax doesn't work, but using just the => does?
       const selectedMaterial = materials.filter(
         (material) =>
           material.id.toString() === clickEvent.target.parentElement.id
       );
 
       targetElement.innerHTML = selectedMaterial[0].renderDetail();
-      targetElement.className = "material-modal-visable";
     }
 
     if (clickEvent.target.id === "modal-close-button") {
-      const targetElement = document.querySelector(".material-modal-visable");
+      const targetElement = document.querySelector(".material-modal");
 
       targetElement.innerHTML = "";
-      targetElement.className = "material-modal-hidden";
     }
 
     if (clickEvent.target.className === "modal-update-button") {

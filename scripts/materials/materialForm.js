@@ -42,8 +42,7 @@ const eventHandler = () => {
 };
 
 const hideForm = () => {
-  document.querySelector(".material-form-visable").className =
-    "material-form-hidden";
+  document.querySelector(".material-form").classList.add("hidden");
 };
 
 const makeMaterial = () => {
@@ -64,7 +63,6 @@ const makeMaterial = () => {
 const updateMaterial = () => {
   const updatedMaterial = getForm();
   const material = useMaterialStore();
-  console.log(material);
   material[0].update(updatedMaterial).then(() => {
     const message = new CustomEvent("materialFormSubmit");
     document.querySelector(".container").dispatchEvent(message);
@@ -216,7 +214,7 @@ const getForm = () => {
 };
 
 const render = () => {
-  const targetElement = document.querySelector(".material-form-hidden");
+  const targetElement = document.querySelector(".material-form");
 
   targetElement.innerHTML = `
   <form>

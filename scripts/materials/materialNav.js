@@ -8,8 +8,7 @@ const eventHandler = () => {
 
   eventHub.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id === "show-material-form") {
-      document.querySelector(".material-form-hidden").className =
-        "material-form-visable";
+      document.querySelector(".material-form").classList.remove("hidden");
     }
   });
 };
