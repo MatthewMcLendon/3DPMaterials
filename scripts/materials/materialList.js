@@ -63,12 +63,30 @@ const eventHandler = () => {
       targetElement.className = "material-modal-hidden";
       selectedMaterial[0].delete().then(getMaterials).then(render);
     }
+
+    if (clickEvent.target.id === "filter-submit") {
+      const filter = document.querySelector(".filter-select").value;
+      let materials = useMaterials();
+
+      if (filter === "0") {
+        return render();
+      }
+
+      let filteredMaterials = materials.filter(
+        (material) => material.type === filter
+      );
+      render(filteredMaterials);
+    }
   });
 };
 
-const render = () => {
-  let materials = useMaterials();
+const render = (inputMaterials) => {
+  let materials = inputMaterials;
   let targetElement = document.querySelector(".material-list");
+
+  if (!inputMaterials) {
+    materials = useMaterials();
+  }
 
   targetElement.innerHTML = materials
     .map((material) => {

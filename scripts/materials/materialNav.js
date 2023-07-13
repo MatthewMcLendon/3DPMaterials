@@ -22,7 +22,7 @@ const render = () => {
     <button id="show-material-form">Add new material</button>
     <span class="filter-bar">
         <select class="filter-select">
-            <option value=0>Please select a material type</option>
+            <option value=0>Show all</option>
             <option value="fdm">FDM</option>
             <option value="resin">Resin</option>
         </select>
