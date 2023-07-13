@@ -13,6 +13,7 @@ const eventHandler = () => {
     if (clickEvent.target.id === "material-form-submit") {
       clickEvent.preventDefault();
 
+      hideForm();
       makeMaterial();
       render();
     }
@@ -20,7 +21,15 @@ const eventHandler = () => {
     if (clickEvent.target.id === "material-form-update") {
       clickEvent.preventDefault();
 
+      hideForm();
       updateMaterial();
+      render();
+    }
+
+    if (clickEvent.target.id === "material-form-cancel") {
+      clickEvent.preventDefault();
+
+      hideForm();
       render();
     }
   });
@@ -30,6 +39,11 @@ const eventHandler = () => {
       settingSelector();
     }
   });
+};
+
+const hideForm = () => {
+  document.querySelector(".material-form-visable").className =
+    "material-form-hidden";
 };
 
 const makeMaterial = () => {
@@ -202,7 +216,7 @@ const getForm = () => {
 };
 
 const render = () => {
-  const targetElement = document.querySelector(".material-form-container");
+  const targetElement = document.querySelector(".material-form-hidden");
 
   targetElement.innerHTML = `
   <form>
@@ -213,11 +227,11 @@ const render = () => {
         <input type="text" placeholder="Name:" id="material-form-title">
     </div>
     <div>
-    <label for="material-form-type">Type of material:</label>
+    <label for="material-form-type">3D printing process:</label>
         <select id="material-form-type">
           <option value="0">Please select an option:</option>
+          <option value="fdm">FDM</option>
           <option value="resin">Resin</option>
-          <option value="fdm">FDM plastic</option>
         </select>
     </div>
     <div id="material-form-settings">
@@ -240,6 +254,7 @@ const render = () => {
         <input type="number" id="material-form-stock">
     </div>
     <button id="material-form-submit">Submit</button>
+    <button id="material-form-cancel">Cancel</button>
   </form>`;
 };
 

@@ -15,7 +15,7 @@ class Material {
   render() {
     return `
     <div class="material-card" id="${this.id}">
-      <h2 class="material-card-title">${this.title}</h2>
+      <h3 class="material-card-title">${this.title}</h2>
       <image class="material-card-image" src="${this.image}">
       <p class="material-card-inventory">Inventory: ${this.stock}</p>
       <p class="material-card-price">Price: ${this.price}</p>

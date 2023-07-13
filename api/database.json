@@ -1,43 +1,43 @@
 {
   "materials": [
     {
-      "title": "updated",
+      "title": "Hatchbox PLA 1.75mm black ",
+      "type": "fdm",
+      "settings": {
+        "nozzleTemp": "190",
+        "bedTemp": "60",
+        "retractionDistance": "3",
+        "retractionSpeed": "30"
+      },
+      "storeLink": "https://www.amazon.com/HATCHBOX-3D-Filament-Dimensional-Accuracy/dp/B00J0ECR5I/ref=sr_1_3?keywords=hatchbox+pla&qid=1688408102&sprefix=hatchbo%2Caps%2C91&sr=8-3",
+      "image": "https://m.media-amazon.com/images/I/71ZgqHSYaFL._AC_SL1500_.jpg",
+      "price": "24.99",
+      "stock": "1",
+      "id": 1
+    },
+    {
+      "title": "Anycubic 3D 405nm Grey",
       "type": "resin",
       "settings": {
         "burnIn": {
-          "layerCount": "1",
-          "exposureTime": "1",
-          "transitionLayers": "1",
-          "lightOffDelay": "1",
-          "liftDistance": "1",
-          "liftSpeed": "1"
+          "layerCount": "2",
+          "exposureTime": "30",
+          "transitionLayers": "3",
+          "lightOffDelay": "10",
+          "liftDistance": "5",
+          "liftSpeed": "30"
         },
-        "exposureTime": "1",
-        "lightOffDelay": "1",
-        "liftDistance": "1",
-        "liftSpeed": "1",
-        "retractionSpeed": "1"
+        "exposureTime": "15",
+        "lightOffDelay": "5",
+        "liftDistance": "5",
+        "liftSpeed": "30",
+        "retractionSpeed": "30"
       },
-      "storeLink": "https://static.boredpanda.com/blog/wp-content/uploads/2014/02/funny-wet-cats-coverimage.jpg",
-      "image": "https://static.boredpanda.com/blog/wp-content/uploads/2014/02/funny-wet-cats-coverimage.jpg",
-      "price": "1",
+      "storeLink": "https://www.amazon.com/ANYCUBIC-UV-Curing-Precision-Excellent-Fluidity/dp/B07G3663HD/ref=sr_1_3?crid=YWS4JQY9S2T9&keywords=3d+printing+resin&qid=1688408504&sprefix=3d+printing+resin%2Caps%2C93&sr=8-3",
+      "image": "https://m.media-amazon.com/images/I/6113X5zRYyL._SL1500_.jpg",
+      "price": "23.99",
       "stock": "1",
-      "id": 4
-    },
-    {
-      "title": "new material test updated",
-      "type": "fdm",
-      "settings": {
-        "nozzleTemp": "1",
-        "bedTemp": "1",
-        "retractionDistance": "1",
-        "retractionSpeed": "1"
-      },
-      "storeLink": "https://static.boredpanda.com/blog/wp-content/uploads/2014/02/funny-wet-cats-coverimage.jpg",
-      "image": "https://static.boredpanda.com/blog/wp-content/uploads/2014/02/funny-wet-cats-coverimage.jpg",
-      "price": "1",
-      "stock": "1",
-      "id": 6
+      "id": 2
     }
   ]
 }
