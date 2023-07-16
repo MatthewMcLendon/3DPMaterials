@@ -1,4 +1,4 @@
-export const materialNav = () => {
+export const navBar = () => {
   eventHandler();
   render();
 };
@@ -17,8 +17,8 @@ const render = () => {
   const targetElement = document.querySelector(".material-nav");
 
   targetElement.innerHTML = `
-    <h1>3D printing materials</h1>
-    <button id="show-material-form">Add new material</button>
+    <h1 class="page-title">3D printing materials</h1>
+    <div id="show-material-form">Add new material</div>
     <span class="filter-bar">
         <select class="filter-select">
             <option value=0>Show all</option>

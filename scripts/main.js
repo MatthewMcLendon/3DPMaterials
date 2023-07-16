@@ -1,6 +1,6 @@
 import { materialForm } from "./materials/materialForm.js";
 import { getMaterials } from "./materials/materialProvider.js";
 import { materialList } from "./materials/materialList.js";
-import { materialNav } from "./materials/materialNav.js";
+import { navBar } from "./navigation/navBar.js";
 
-getMaterials().then(materialNav).then(materialForm).then(materialList);
+getMaterials().then(navBar).then(materialForm).then(materialList);

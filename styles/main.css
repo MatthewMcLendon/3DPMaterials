@@ -1,1 +1,21 @@
 @import url("./material.css");
+@import url("./navigation.css");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #494d5f;
+  color: #e5eaf5;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border-radius: 0.5rem;
+  background-color: #494d5f;
+  color: whitesmoke;
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}

@@ -44,6 +44,7 @@ const eventHandler = () => {
       );
 
       setForm(selectedMaterial);
+      document.querySelector(".material-form").classList.remove("hidden");
       targetElement.innerHTML = "";
       targetElement.className = "material-modal-hidden";
     }

@@ -1,0 +1,30 @@
+.material-nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #a0d2eb;
+  height: 5rem;
+  color: #494d5f;
+}
+
+.material-nav button:hover {
+  background-color: rgba(222, 222, 222, 50%);
+}
+
+.page-title {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  justify-self: left;
+}
+
+#show-material-form {
+  height: 100%;
+  text-align: center;
+}
+
+#show-material-form:hover {
+  background-color: rgba(222, 222, 222, 50%);
+}
